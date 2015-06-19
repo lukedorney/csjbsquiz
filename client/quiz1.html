@@ -1,0 +1,54 @@
+<template name="quiz1">
+	<div name="all" class="row">
+		{{> fillin}}
+		{{> disp}}
+	</div>
+</template>
+
+
+<template name="fillin">
+	<div class="col-md-6 bg-info">
+		<h1>Enter your Profile Info</h1>
+	<form id="create">
+			First name: <input type="text" name="first"><br/>
+			Last name: <input type="text" name="last"><br/>
+			Project: <input type="text" name="proj"><br/>
+			Meteor URL: <input type="text" name="meteor"><br/>
+			GitHub URL: <input type="text" name="git"><br/>
+			<small>Please use the full URL (e.g. https://www.somewebsite.com)</small><br/>
+			<input type="submit">
+		</form>
+	</div>
+</template>
+
+<template name="disp">
+	<div class="col-md-6 bg-danger">
+		<table class="table">
+			<thead>
+      			<tr>
+        			<th>First Name</th>
+        			<th>Last Name</th>
+        			<th>Project</th>
+        			<th>Meteor URL</th>
+        			<th>GitHub URL</th>
+      			</tr>
+    		</thead>
+    		<tbody>
+    			{{#each pros}}
+					{{> individual}}
+				{{/each}}  
+    		</tbody>
+		</table>	
+	</div>
+</template>
+
+<template name="individual">
+	<tr>
+        <td>{{first}}</td>
+        <td>{{last}}</td>
+        <td>{{proj}}</td>
+        <td><a href={{meteor}}>{{meteor}}</a></td>
+        <td><a href={{git}}>{{git}}</a></td>
+        <span class="glyphicon glyphicon-remove profile-delete-icon" aria-hidden="true"></span>
+     </tr>
+</template>
